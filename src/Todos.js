@@ -1,12 +1,12 @@
 const Todos = ({todos, deleteTodo}) => {
     const todoList = todos.length ? todos.map(todo => {
         return (
-            <div key={todo.id} className="collection-item">
+            <div key={todo.id} className="list-group-item">
                 <span className="todos orange-text" onClick={() => { deleteTodo(todo.id) }}> { todo.content } </span>
             </div>
         )
     }) : 
-    <div className="collection-item red-text">
+    <div className="list-group-item red-text">
         <p>It's time to sleep... Go build 'em dreams up!</p>
     </div>
 
