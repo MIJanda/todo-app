@@ -15,18 +15,22 @@ class App extends Component {
     }
 
     addTodo = todo => {
-        console.log(todo);
+        todo.id = Math.random();
+        let todos = [...this.state.todos, todo];
+        this.setState({
+            todos
+        });
     }
 
     deleteTodo = id => {
         const todos = this.state.todos.filter(todo => todo.id !== id);
-        this.setState({ todos })
+        this.setState({ todos });
     }
 
     render() {
         return (
             <div className="container">
-                <h1 className="primary">Todos</h1>
+                <h1 className="indigo-text m-5 center">Todos</h1>
                 <Todos todos={this.state.todos} deleteTodo={this.deleteTodo} className="list-group"/>
                 <AddTodo addTodo={this.addTodo}/>
             </div>

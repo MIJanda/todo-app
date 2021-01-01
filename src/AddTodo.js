@@ -5,10 +5,11 @@ class AddTodo extends Component {
     }
 
     handleSubmit = e => {
-        e.preventDefault;
-        // const id = Math.random();
-        // AddTodo([{...this.state, id}]);
-        console.log(this.state);
+        e.preventDefault();    
+        this.props.addTodo(this.state);
+        this.setState({
+            content: ""
+        });
     }
 
     handleChange = e => {
@@ -19,10 +20,10 @@ class AddTodo extends Component {
 
     render() {
         return (
-            <div>
+            <div className="m-5">
                 <form onSubmit={this.handleSubmit}>
-                    <label>Go ahead and add another task</label>
-                    <input type="text" onChange={this.handleChange} className="form-control-lg"/>
+                    <label className="fs-5 indigo-text text-capitalize">Add another task</label>
+                    <input type="text" onChange={this.handleChange} value={this.state.content} className="form-control-lg"/>
                 </form>
             </div>
         )

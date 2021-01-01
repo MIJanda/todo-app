@@ -1,13 +1,17 @@
 const Todos = ({todos, deleteTodo}) => {
     const todoList = todos.length ? todos.map(todo => {
         return (
-            <div key={todo.id} className="list-group-item">
-                <span className="todos orange-text" onClick={() => { deleteTodo(todo.id) }}> { todo.content } </span>
+            <div key={todo.id} className="list-group-item d-grid gap-3 center" >
+            
+                <input className="form-check-input me-1" type="checkbox"/>
+                <span className="todos orange-text fs-4 text-capitalize" onClick={() => { deleteTodo(todo.id) }}> { todo.content } </span>
+                
             </div>
         )
     }) : 
-    <div className="list-group-item red-text">
-        <p>It's time to sleep... Go build 'em dreams up!</p>
+    <div className="list-group-item text-capitalize red-text fs-3 center">
+        {/* add sleep icon, battery shutdown icon type issh */}
+        <p>Sleep time... Go build 'em dreams up!</p>
     </div>
 
     return todoList;
@@ -24,3 +28,5 @@ export default Todos;
 // expand momentarily to display task being crossed off
 // fade-out animation of done task
 // like some ninja issh, huwaaa! (Bruce Lee impression :)
+// call deleteTodo after checking the todo item off the list
+// animate the deletion, 1s after check
