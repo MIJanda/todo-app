@@ -1,22 +1,26 @@
 const Todos = ({todos, deleteTodo}) => {
-    const todoList = todos.length ? (
-        todos.map(todo => {
-            return ( 
-                <div key={todo.id} className="collection-item" onClick={() => {deleteTodo(todo.id)}}>
-                    <span> {todo.content} </span>
-                </div>
-            )
-        })
-    ) : ( 
-        <p className="center">You don't have any todos left...</p>
-    );
+    const todoList = todos.length ? todos.map(todo => {
+        return (
+            <div key={todo.id} className="collection-item">
+                <span className="todos orange-text" onClick={() => { deleteTodo(todo.id) }}> { todo.content } </span>
+            </div>
+        )
+    }) : 
+    <div className="collection-item red-text">
+        <p>It's time to sleep... Go build 'em dreams up!</p>
+    </div>
 
-
-   return (
-       <div className="collection todos">
-           { todoList }
-       </div>
-   ) 
+    return todoList;
 };
 
+
 export default Todos;
+
+// ideas
+// todo: hover to indicate green i.e task done
+// capitalize todos, increase text size
+// ensure tasks are done in order else disorder
+// else necessary change the order of the tasks
+// expand momentarily to display task being crossed off
+// fade-out animation of done task
+// like some ninja issh, huwaaa! (Bruce Lee impression :)
